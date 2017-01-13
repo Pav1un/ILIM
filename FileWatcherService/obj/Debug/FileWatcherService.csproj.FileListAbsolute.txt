@@ -1,0 +1,7 @@
+d:\VS\FileWatcherService\FileWatcherService\bin\Debug\FileWatcherService.exe.config
+d:\VS\FileWatcherService\FileWatcherService\bin\Debug\FileWatcherService.exe
+d:\VS\FileWatcherService\FileWatcherService\bin\Debug\FileWatcherService.pdb
+d:\VS\FileWatcherService\FileWatcherService\obj\Debug\FileWatcherService.exe
+d:\VS\FileWatcherService\FileWatcherService\obj\Debug\FileWatcherService.pdb
+d:\VS\FileWatcherService\FileWatcherService\obj\Debug\FileWatcherService.csproj.ResolveComReference.cache
+d:\VS\FileWatcherService\FileWatcherService\obj\Debug\FileWatcherService.csprojResolveAssemblyReference.cache
