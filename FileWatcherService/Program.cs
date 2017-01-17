@@ -20,17 +20,6 @@ namespace FileWatcherService
                 new Service1()
             };
             ServiceBase.Run(ServicesToRun);
-
-            /*
-            if (Environment.UserInteractive)
-            {
-                Service1 service1 = new Service1();
-                service1.TestStartupAndStop(args);
-            }
-            else
-            {
-                // Put the body of your old Main method here.
-            }*/
         }
     }
 }
