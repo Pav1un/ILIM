@@ -23,8 +23,9 @@ namespace FileWatcherService
             processInstaller = new ServiceProcessInstaller();
 
             processInstaller.Account = ServiceAccount.LocalSystem;
+            
             serviceInstaller.StartType = ServiceStartMode.Manual;
-            serviceInstaller.ServiceName = "Service1";
+            serviceInstaller.ServiceName = "Movies";
             Installers.Add(processInstaller);
             Installers.Add(serviceInstaller);
         }
