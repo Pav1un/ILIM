@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileWatcherService", "FileWatcherService\FileWatcherService.csproj", "{3954E24C-9BCE-4FCA-AA87-8469AEA896BA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieGallery", "MovieGallery\MovieGallery.csproj", "{0D455814-3032-49C6-BF78-711B6B39D233}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieData", "MovieData\MovieData.csproj", "{2BF4E93C-964A-4299-BFD4-E86810E975BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{3954E24C-9BCE-4FCA-AA87-8469AEA896BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3954E24C-9BCE-4FCA-AA87-8469AEA896BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3954E24C-9BCE-4FCA-AA87-8469AEA896BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D455814-3032-49C6-BF78-711B6B39D233}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D455814-3032-49C6-BF78-711B6B39D233}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D455814-3032-49C6-BF78-711B6B39D233}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D455814-3032-49C6-BF78-711B6B39D233}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BF4E93C-964A-4299-BFD4-E86810E975BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BF4E93C-964A-4299-BFD4-E86810E975BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BF4E93C-964A-4299-BFD4-E86810E975BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BF4E93C-964A-4299-BFD4-E86810E975BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

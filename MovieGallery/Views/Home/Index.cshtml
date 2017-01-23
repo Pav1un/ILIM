@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Movies";
+}
+
+<div class="panel-info">
+    <div class="panel-heading">
+        Movies
+    </div>
+</div>
+
+<table class="table table-hover">
+    <tr>
+        <th> Name </th>
+        <th> Id   </th>
+    </tr> 
+    <tbody id="updateTableBody">
+        @Html.Action("Update")
+    </tbody>
+</table>
+
+<div class="btn btn-success">
+    @Ajax.ActionLink("Update", "Update", new AjaxOptions { UpdateTargetId = "updateTableBody" })    
+</div>

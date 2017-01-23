@@ -1,0 +1,17 @@
+﻿@using MovieGallery.Models
+
+@model IMovieCollection
+
+
+@foreach (var m in Model.Movies)
+{   
+    <tr>
+        <td> @m.Name </td>
+        <td>
+            <div class="btn btn-success">                
+                @Html.ActionLink("Узрить", "Behold", new { id = m.Id })                
+            </div>
+        </td>
+    </tr>
+}
+
