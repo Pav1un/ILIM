@@ -13,24 +13,18 @@ namespace MovieGallery.Models
 {
     public class MoviesRegular : IMovieCollection
     {
-        static string path;
-        DataContractJsonSerializer json;
         JsonResult mvList;
+        JsonWork jw;
 
-        public MoviesRegular(String pathMvs = @"D:\GoodFilms.txt")
+        public MoviesRegular()
         {
-            path = pathMvs;
-            json = new DataContractJsonSerializer(typeof(JsonResult));
+            jw = new JsonWork();
         }
 
 
-        public JsonResult CreateMovieList(String path = @"D:\GoodFilms.json")
-        {
-            using (FileStream reader = new FileStream(path, FileMode.Open))
-            {
-                var mvs = (JsonResult)json.ReadObject(reader);
-                return mvs;
-            }
+        public JsonResult CreateMovieList(String path)
+        {            
+             return jw.GetObjectFromJson<JsonResult>(path);                
         }
 
         public IEnumerable<Movie> Movies
@@ -40,25 +34,19 @@ namespace MovieGallery.Models
                 if (mvList != null)
                     return mvList.Movies;
 
-                return (mvList = CreateMovieList()).Movies;
+                return (mvList = CreateMovieList(@"D:\GoodFilms.json")).Movies;
             }
         }
 
         public String GetHomePageFromId(Int32 id)
         {
-
             var resp = (HttpWebResponse)HttpWebRequest
-                .Create(LinkConfig.firstRequestPart + id.ToString() + LinkConfig.secondRequestPart)
+                .Create(LinkConfig.firstRequestPart 
+                        + id.ToString() 
+                        + LinkConfig.secondRequestPart)
                 .GetResponse();
 
-            using (StreamReader stream = new StreamReader(resp.GetResponseStream()))
-            {
-                json = new DataContractJsonSerializer(typeof(MovieUrl));
-                var rawJson = stream.ReadToEnd();
-                var homePage = (MovieUrl)json.ReadObject(new System.IO.MemoryStream(Encoding.UTF8.GetBytes(rawJson)));
-
-                return homePage.HomePage;
-            }
+           return jw.GetObjectFromJson<MovieUrl>(resp).HomePage;
         }
     }
 }

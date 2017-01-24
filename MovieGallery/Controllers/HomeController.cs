@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MovieGallery.Models;
+using System.Diagnostics;
 
 namespace MovieGallery.Controllers
 {
@@ -22,7 +23,7 @@ namespace MovieGallery.Controllers
             return PartialView(mvs);
         }
 
-        public RedirectResult Behold(Int32 id) {            
+        public RedirectResult Behold(Int32 id) {
             return Redirect(mvs.GetHomePageFromId(id));            
         }
     }

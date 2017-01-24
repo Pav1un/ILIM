@@ -34,9 +34,11 @@
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="JsonResult.cs" />
+    <Compile Include="JsonWork.cs" />
     <Compile Include="Movie.cs" />
     <Compile Include="MovieUrl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

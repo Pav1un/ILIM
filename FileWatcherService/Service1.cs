@@ -40,19 +40,13 @@ namespace FileWatcherService
     {
         static string path = @"D:\GoodFilms.txt";
         static String site = "https://api.themoviedb.org/3/discover/movie?api_key=6a1f74896198cfbd499eb6f6045873f8&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1";
-        static HttpWebResponse resp;       
         bool enabled = true;
-        DataContractJsonSerializer json = new DataContractJsonSerializer(typeof(JsonResult));
+        JsonWork jw = new JsonWork();
+
+
+        public HttpWebResponse GetResponse(String requestString) =>
+              (HttpWebResponse)HttpWebRequest.Create(requestString).GetResponse();        
         
-        public HttpWebResponse Response
-        {
-            get  {
-                if (resp == null)
-                    resp = (HttpWebResponse)HttpWebRequest.Create(site).GetResponse();
-                return resp;
-            }
-            private set { }
-        }
 
         public void Start() {
             while (enabled) {
@@ -63,26 +57,14 @@ namespace FileWatcherService
 
         public void Stop() => enabled = false;
 
-        public JsonResult GetMovieList(Boolean isJsonFileCreate = true) { 
-            
-            using (StreamReader stream = new StreamReader(Response.GetResponseStream()))
-            {              
-                var rawJson = stream.ReadToEnd();
-                var mvs = (JsonResult)json.ReadObject(new System.IO.MemoryStream(Encoding.UTF8.GetBytes(rawJson)));
-                if (isJsonFileCreate) {
-                    CreateJsonFile(mvs);
-                }
-
-                return mvs;
-            }           
-        }
-
-        public void CreateJsonFile(JsonResult mvs, String path = @"D:\GoodFilms.json") {
-            using (FileStream writer = new FileStream(path, FileMode.Create))
-            {
-                json.WriteObject(writer, mvs);
+        public JsonResult GetMovieList(Boolean isJsonFileCreate = true) {
+            var mvs = jw.GetObjectFromJson<JsonResult>(GetResponse(site));
+            if (isJsonFileCreate) {
+                jw.CreateJsonFile(mvs, @"D:\GoodFilms.json");
             }
-        }
+
+            return mvs;
+        }        
 
         public void FlushMovieListToFile(JsonResult movieLst)
         {
